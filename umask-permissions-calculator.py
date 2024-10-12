@@ -1,7 +1,7 @@
-# Niels Evers
-# 10/12/2024
-# This code can show the umask-, directory- and filepermissions
-# for a given number.
+# This code calculates umask-, directory- and filepermissions for
+# a given number.
+# 10/24/2024
+# by Niels Evers
 
 # UNTIL THE NEXT PARAGRAPH: FUNCTION FOR DUPLICATION AND
 # CONVERSION OF THE (IN THIS CASE) INTEGER VALUES (NUMERICAL OCTAL)
