@@ -3,9 +3,9 @@
 # 10/24/2024
 # by Niels Evers
 
-# UNTIL THE NEXT PARAGRAPH: FUNCTION FOR DUPLICATION AND
-# CONVERSION OF THE (IN THIS CASE) INTEGER VALUES (NUMERICAL OCTAL)
-# TO STRING VALUES (ALPHABETICAL)
+# Until the next paragraph: Function for duplication and conversion
+# of the (in this case) integer values (numerical octal) to
+# string values (alphabetical)
 def f_perm_alp():
     for digit in range(3):
         if perm_oct[digit] == 0:
@@ -25,62 +25,40 @@ def f_perm_alp():
         else:
             perm_alp.append("rwx")
 
-# UNTIL THE NEXT PARAGRAPH: DEFINITION OF THE UMASK
+# Until the next paragraph: Definition of the umask
 umask = int(input("Please insert a valid umask (0-777): "))
 
-# UNTIL THE NEXT PARAGRAPH: CHECKING THE UMASK
-# Check the entered values
+# Until the next paragraph: Checking the umask
 if umask < 0 or umask > 777:
-    # Show an error-message
     print("Invalid umask. Please enter a valid umask between 0 and 777.")
 
-# UNTIL THE END: THE MAIN PROGRAM
+# Until the end: The Main program
 else:
 
-    # UNTIL THE NEXT PARAGRAPH: CONVERSION AND OUTPUT OF THE UMASK
-    # Insert the values in a list as a string
+    # Until the next paragraph: Conversion and ouput of the umask
     perm_oct = [int(numeric) for numeric in str(umask).zfill(3)]
-    # Define another list
     perm_alp = []
-    # Use the f_perm_alp-function to duplicate the integer-values and
-    # convert them to string-values
     f_perm_alp()
-    # Output the integer-values, the string-values and
-    # hide the visible list-characteristics
     print("\nUM: ", f"{str(umask).zfill(3)} (numeric) ", *perm_alp, f" (alph.)", sep='')
 
-    # UNTIL THE NEXT PARAGRAPH: CALCULATION OF THE DIRECTORY-PERMISSIONS
+    # Until the next paragraph: Calculation of the directory-permissions
     fulldp = 777
     umaskdp = int(fulldp - umask)
 
-    # UNTIL THE NEXT PARAGRAPH: CONVERSION AND
-    # OUTPUT OF THE DIRECTORY PERMISSIONS
-    # Insert the values in a list as a string
+    # Until the next paragraph: Conversion and output of the
+    # directory permissions
     perm_oct = [int(numeric) for numeric in str(umaskdp).zfill(3)]
-    # Define another list
     perm_alp = []
-    # Use the f_perm_alp-function to duplicate the integer-values and
-    # convert them to string-values
     f_perm_alp()
-    # Output the integer-values, the string-values and
-    # hide the visible list-characteristics
     print("DP: ",*perm_oct, f" (numeric) ", *perm_alp, f" (alph.)", sep='')
 
-    # UNTIL THE NEXT PARAGRAPH: CALCULATION, CONVERSION AND
-    # OUTPUT OF THE FILE PERMISSIONS
-    # Insert the values in a list as a string
+    # Until the next paragraph: Calculation, conversion and output of
+    # the file permissions
     perm_oct = [int(numeric) for numeric in str(umaskdp).zfill(3)]
-    # Define another list
     perm_alp = []
-    # Use Mr. A. Ehlen's function
     for i in range(3):
         if perm_oct[i] % 2 == 1:
             perm_oct[i] -= 1
-    # Use the f_perm_alp-function to duplicate the integer-values and
-    # convert them to string-values
     f_perm_alp()
-    # Output the integer-values, the string-values and
-    # hide the visible list-characteristics
     print("FP: ",*perm_oct, f" (numeric) ", *perm_alp, f" (alph.)", sep='')
-    # Output the list of abbreviations
     print(f"\nUM = umask, DP = Directory Permissions, FP = File Permissions")
